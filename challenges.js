@@ -42,8 +42,17 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     scores[activePlayer] += roundScore;
 
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+
+    var input = document.querySelector('.final-score').value;
+    var winningScore;
+
+    if (input) {
+      winningScore = input;
+    } else {
+      winningScore = 100;
+    }
   
-    if (scores[activePlayer] >= 20) { 
+    if (scores[activePlayer] >= winningScore) { 
   
       document.querySelector('.dice').style.display = 'none';
       document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
